@@ -1,5 +1,398 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-alecthomas-chroma-v2 (2.14.0-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 2.14.0
+  * Bump versioned dependency as per go.mod
+  * Bump Standards-Version to 4.7.0 (no change)
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Anthony Fok <foka@debian.org>  Sun, 14 Jul 2024 06:05:20 -0600
+
+golang-github-alecthomas-chroma-v2 (2.13.0-1) unstable; urgency=medium
+
+  * New upstream version 2.13.0
+  * Bump versioned dependencies as per go.mod
+  * Revert "Cherry pick upstream patch to fix test with Go 1.22"
+    which is part of the upstream v2.13.0 release
+
+ -- Anthony Fok <foka@debian.org>  Sun, 24 Mar 2024 20:44:33 -0600
+
+golang-github-alecthomas-chroma-v2 (2.12.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Cherry pick upstream patch to fix test with Go 1.22
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sat, 24 Feb 2024 00:14:17 +0800
+
+golang-github-alecthomas-chroma-v2 (2.12.0-1) unstable; urgency=medium
+
+  * New upstream version 2.12.0
+  * Bump versioned dependencies as per go.mod
+
+ -- Anthony Fok <foka@debian.org>  Fri, 08 Dec 2023 23:37:10 -0700
+
+golang-github-alecthomas-chroma-v2 (2.10.0-1) unstable; urgency=medium
+
+  * New upstream version 2.10.0
+
+ -- Anthony Fok <foka@debian.org>  Wed, 01 Nov 2023 02:47:54 -0600
+
+golang-github-alecthomas-chroma-v2 (2.9.1-1) unstable; urgency=medium
+
+  * New upstream version 2.9.1
+  * Bump versioned dependencies as per go.mod,
+    golang-github-dlclark-regexp2-dev (>= 1.10.0) in particular
+
+ -- Anthony Fok <foka@debian.org>  Wed, 11 Oct 2023 15:19:18 -0600
+
+golang-github-alecthomas-chroma-v2 (2.8.0-1) unstable; urgency=medium
+
+  * New upstream version 2.8.0
+
+ -- Anthony Fok <foka@debian.org>  Fri, 22 Sep 2023 08:58:37 -0600
+
+golang-github-alecthomas-chroma-v2 (2.7.0-1) unstable; urgency=medium
+
+  * New upstream version 2.7.0
+  * debian/copyright: Rename styles/witchhazel.go to styles/witchhazel.xml;
+    fixes Lintian superfluous-file-pattern warning
+  * Add script-not-executable and unusual-interpreter Lintian overrides
+    for lexers testdata
+
+ -- Anthony Fok <foka@debian.org>  Sun, 18 Jun 2023 01:05:14 -0600
+
+golang-github-alecthomas-chroma-v2 (2.5.0-1) unstable; urgency=medium
+
+  * New upstream version 2.5.0
+  * Bump versioned dependencies as per go.mod
+
+ -- Anthony Fok <foka@debian.org>  Wed, 08 Mar 2023 12:13:23 -0700
+
+golang-github-alecthomas-chroma-v2 (2.4.0-1) unstable; urgency=medium
+
+  * New upstream version 2.4.0
+  * Update versioned dependencies as per go.mod:
+    - Updated: golang-any (>= 2:1.19~)
+    - Added:   golang-github-alecthomas-assert-dev (>= 2.2.0)
+    - Removed: golang-github-stretchr-testify-dev (>= 1.8.0)
+  * Bump Standards-Version to 4.6.2 (no change)
+  * Add "styles" directory (with XML files) to DH_GOLANG_INSTALL_EXTRA
+
+ -- Anthony Fok <foka@debian.org>  Wed, 25 Jan 2023 11:55:20 -0700
+
+golang-github-alecthomas-chroma-v2 (2.3.0-2) unstable; urgency=medium
+
+  * Acknowledge Pirate Praveen’s addition of missing build-dependency
+    on golang-github-alecthomas-repr-dev in debian/changelog entry for 2.3.0-1
+  * Bump dependency: golang-github-alecthomas-kong-hcl-dev (>> 0.2.0-2)
+    which contains a patch that sidesteps TestHCL/FromResolver test error
+    with groups.
+
+ -- Anthony Fok <foka@debian.org>  Sun, 25 Sep 2022 05:16:40 -0600
+
+golang-github-alecthomas-chroma-v2 (2.3.0-1) unstable; urgency=medium
+
+  [ Pirate Praveen ]
+  * Add golang-github-alecthomas-repr-dev to build-depends
+
+  [ Anthony Fok ]
+  * New upstream version 2.3.0
+  * Update versioned dependencies as per go.mod, and adding
+    golang-github-alecthomas-repr-dev (>= 0.1.0) to Depends too
+
+ -- Anthony Fok <foka@debian.org>  Sun, 25 Sep 2022 01:51:15 -0600
+
+golang-github-alecthomas-chroma-v2 (2.2.0-2) unstable; urgency=medium
+
+  * Source-only upload for migration to testing
+
+ -- Anthony Fok <foka@debian.org>  Fri, 08 Jul 2022 05:14:47 -0600
+
+golang-github-alecthomas-chroma-v2 (2.2.0-1) unstable; urgency=medium
+
+  * New upstream version 2.2.0
+  * Initial release for the new golang-github-alecthomas-chroma-v2 package
+  * Update versioned dependencies as per go.mod
+  * Rename binary packages for v2
+  * Rename /usr/bin/chroma{,d} to /usr/bin/chroma{,d}-v2
+    so that golang-chroma and golang-chroma-v2 may coexist
+  * Update debian/copyright for v2
+  * Add lexers/embedded to DH_GOLANG_INSTALL_EXTRA in debian/rules
+  * Add missing licensing information of recently added files to
+    debian/copyright:
+     - formatters/svg/font_liberation_mono.go (OFL-1.1)
+     - lexers/lexer_benchmark_test.go (Apache-2.0)
+     - styles/witchhazel.go (Apache-2.0)
+    Thanks to Thorsten Alteholz for catching my omissions!
+
+ -- Anthony Fok <foka@debian.org>  Sun, 03 Jul 2022 06:24:42 -0600
+
+golang-github-alecthomas-chroma (0.10.0-2) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.6.1 (no change)
+  * Replace Built-Using field with Static-Built-Using
+  * Remove dependency on go.rice which became unneeded since v0.9.1
+    when chromad started using go:embed for embedding files
+  * Set -ldflags to add version and date to chroma and chromad
+
+ -- Anthony Fok <foka@debian.org>  Fri, 24 Jun 2022 04:26:41 -0600
+
+golang-github-alecthomas-chroma (0.10.0-1) unstable; urgency=medium
+
+  * New upstream version 0.10.0
+  * debian/watch: Match only v0 so as not to fetch v2
+  * Reorder fields in debian/control and debian/copyright
+    as would be generated in the next dh-make-golang release after 0.6.0-1
+  * Use dh-sequence-golang instead of dh-golang and --with=golang
+
+ -- Anthony Fok <foka@debian.org>  Wed, 02 Mar 2022 22:33:27 -0700
+
+golang-github-alecthomas-chroma (0.9.4-1) unstable; urgency=medium
+
+  * New upstream version 0.9.4
+  * Update versioned dependencies as per go.mod
+
+ -- Anthony Fok <foka@debian.org>  Tue, 02 Nov 2021 11:33:13 -0600
+
+golang-github-alecthomas-chroma (0.9.2-1) unstable; urgency=medium
+
+  * New upstream version 0.9.2
+
+ -- Anthony Fok <foka@debian.org>  Tue, 19 Oct 2021 10:15:03 -0600
+
+golang-github-alecthomas-chroma (0.9.1-1) unstable; urgency=medium
+
+  * New upstream version 0.9.1
+  * Bump Standards-Version to 4.6.0 (no change)
+  * Mark library package with "Multi-Arch: foreign"
+  * Update dependencies as per go.mod and bump golang-any dependency
+    to 2:1.16~ due to upstream's use of //go:embed
+  * debian/rules: Install cmd/chromad/static and cmd/chromad/templates
+    as they are needed by //go:embed
+
+ -- Anthony Fok <foka@debian.org>  Sun, 19 Sep 2021 03:01:40 -0600
+
+golang-github-alecthomas-chroma (0.8.2-3) unstable; urgency=high
+
+  * Source-only upload for migration to testing,
+    with urgency set to high hoping it would make it into bullseye.  ;-)
+
+ -- Anthony Fok <foka@debian.org>  Wed, 10 Feb 2021 22:43:36 -0700
+
+golang-github-alecthomas-chroma (0.8.2-2) unstable; urgency=medium
+
+  * Rename binary package "chroma" to "golang-chroma"
+    to make way for the newly packaged "chroma" game which will likely be
+    a lot more popular than this tool.
+
+ -- Anthony Fok <foka@debian.org>  Mon, 08 Feb 2021 20:34:23 -0700
+
+golang-github-alecthomas-chroma (0.8.2-1) unstable; urgency=medium
+
+  * New upstream version 0.8.2
+  * debian/control: Change Section from devel to golang
+  * Bump Standards-Version to 4.5.1 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Wed, 02 Dec 2020 00:08:43 -0700
+
+golang-github-alecthomas-chroma (0.8.1-2) unstable; urgency=medium
+
+  * Remove dependency on golang-gopkg-alecthomas-kingpin.v3-unstable-dev
+    as Go ignores underscore-prefixed directories like _tools/
+    which is the only place where the unreleased kingpin.v3 is imported.
+
+ -- Anthony Fok <foka@debian.org>  Fri, 23 Oct 2020 04:00:25 -0600
+
+golang-github-alecthomas-chroma (0.8.1-1) unstable; urgency=medium
+
+  * New upstream version 0.8.1
+
+ -- Anthony Fok <foka@debian.org>  Mon, 19 Oct 2020 19:24:19 -0600
+
+golang-github-alecthomas-chroma (0.8.0-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+  [ Anthony Fok ]
+  * New upstream version 0.8.0
+  * Bump debhelper dependency to "Build-Depends: debhelper-compat (= 13)"
+
+ -- Anthony Fok <foka@debian.org>  Fri, 18 Sep 2020 13:14:13 -0600
+
+golang-github-alecthomas-chroma (0.7.3-1) unstable; urgency=medium
+
+  * New upstream version 0.7.3
+  * Update versioned dependencies as per go.mod
+
+ -- Anthony Fok <foka@debian.org>  Mon, 25 May 2020 20:22:37 -0600
+
+golang-github-alecthomas-chroma (0.7.2-1) unstable; urgency=medium
+
+  * New upstream version 0.7.2
+
+ -- Anthony Fok <foka@debian.org>  Sat, 25 Apr 2020 20:20:46 -0600
+
+golang-github-alecthomas-chroma (0.7.1-1) unstable; urgency=medium
+
+  * New upstream version 0.7.1
+  * debian/control, debian/rules: Build cmd/chromad too
+  * Use golang-rice to append resources to chromad
+  * Remove 0001-Remove-MS-Windows-specific-code.patch
+    as golang-github-mattn-go-colorable-dev now exists in Debian
+
+ -- Anthony Fok <foka@debian.org>  Mon, 17 Feb 2020 05:36:14 -0700
+
+golang-github-alecthomas-chroma (0.7.0-1) unstable; urgency=medium
+
+  * New upstream version 0.7.0
+  * debian/watch: Update filenamemangle to match source package name
+  * Bump Standards-Version to 4.5.0 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Sat, 15 Feb 2020 17:29:35 -0700
+
+golang-github-alecthomas-chroma (0.6.8-1) unstable; urgency=medium
+
+  * New upstream version 0.6.8
+  * Bump Standards-Version to 4.4.1 (no change)
+  * Add "Rules-Requires-Root: no" to debian/control
+  * debian/control: Add new dependencies according to go.mod
+  * debian/gbp.conf: Set debian-branch to debian/sid for DEP-14 conformance
+  * debian/rules: Set DH_GOLANG_EXCLUDES to cmd/chromad
+    while we wait for its new dependencies to enter Debian
+
+ -- Anthony Fok <foka@debian.org>  Tue, 03 Dec 2019 08:28:22 -0700
+
+golang-github-alecthomas-chroma (0.6.4-2) unstable; urgency=medium
+
+  * Bump debhelper dependency to "Build-Depends: debhelper-compat (= 12)"
+  * Remove DH_GOLANG_INSTALL_EXTRA from debian/rules as testdata/
+    content is automatically installed by dh-golang (>= 1.31~)
+
+ -- Anthony Fok <foka@debian.org>  Sun, 11 Aug 2019 04:06:14 -0600
+
+golang-github-alecthomas-chroma (0.6.4-1) unstable; urgency=medium
+
+  * New upstream version 0.6.4
+
+ -- Anthony Fok <foka@debian.org>  Sat, 27 Jul 2019 02:22:03 -0600
+
+golang-github-alecthomas-chroma (0.6.3+really0.6.3-1) unstable; urgency=medium
+
+  * Revert to upstream version 0.6.3 now that Debian 10 "buster" is released.
+    See https://bugs.debian.org/928227 for a rationale.
+  * Bump Standards-Version to 4.4.0 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Wed, 10 Jul 2019 15:16:03 -0600
+
+golang-github-alecthomas-chroma (0.6.3+really0.6.2-1) unstable; urgency=medium
+
+  * Revert all changes between 0.6.3-1 and 0.6.2-1.
+    See https://bugs.debian.org/928227 for a rationale.
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Sat, 01 Jun 2019 22:27:18 +0200
+
+golang-github-alecthomas-chroma (0.6.3-1) unstable; urgency=medium
+
+  * New upstream version 0.6.3
+  * Refresh 0001-Remove-MS-Windows-specific-code.patch
+
+ -- Anthony Fok <foka@debian.org>  Sun, 14 Apr 2019 05:07:42 -0600
+
+golang-github-alecthomas-chroma (0.6.2-1) unstable; urgency=medium
+
+  * New upstream version 0.6.2
+  * Add dependency on golang-github-alecthomas-kong-dev
+  * Refresh 0001-Remove-MS-Windows-specific-code.patch
+  * Remove unnecessary Files-Excluded line in debian/copyright
+  * Bump Standards-Version to 4.3.0 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Fri, 01 Feb 2019 11:06:45 -0700
+
+golang-github-alecthomas-chroma (0.6.0-1) unstable; urgency=medium
+
+  [ Anthony Fok ]
+  * Bump Standards-Version to 4.2.0 (no change)
+
+  [ Dr. Tobias Quathamer ]
+  * New upstream version 0.6.0
+    - Refresh patch
+  * Update team name and address
+  * Update to Standards-Version 4.2.1
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Tue, 18 Dec 2018 13:10:58 +0100
+
+golang-github-alecthomas-chroma (0.5.0-1) unstable; urgency=medium
+
+  * New upstream version 0.5.0
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Thu, 16 Aug 2018 11:19:34 +0200
+
+golang-github-alecthomas-chroma (0.4.0+git20180731.3fb10fb-1) unstable; urgency=medium
+
+  * New upstream version 0.4.0+git20180731.3fb10fb
+  * Bump Standards-Version to 4.1.5 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Wed, 01 Aug 2018 07:24:15 -0600
+
+golang-github-alecthomas-chroma (0.4.0+git20180612.d7b2ed2-1) unstable; urgency=medium
+
+  * New upstream version 0.4.0+git20180612.d7b2ed2
+  * Apply "cme fix dpkg" fixes to debian/control,
+    bumping Standards-Version to 4.1.4 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Tue, 12 Jun 2018 07:11:09 -0600
+
+golang-github-alecthomas-chroma (0.4.0+git20180402.51d250f-1) unstable; urgency=medium
+
+  [ Alexandre Viau ]
+  * Point Vcs-* urls to salsa.debian.org.
+
+  [ Anthony Fok ]
+  * New upstream version 0.4.0+git20180402.51d250f
+
+ -- Anthony Fok <foka@debian.org>  Mon, 02 Apr 2018 22:42:04 -0600
+
+golang-github-alecthomas-chroma (0.4.0-1) unstable; urgency=medium
+
+  * New upstream version 0.4.0
+  * Refresh patch
+  * Update d/copyright
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Thu, 22 Mar 2018 21:46:00 +0100
+
+golang-github-alecthomas-chroma (0.3.0-1) unstable; urgency=medium
+
+  * New upstream version 0.3.0
+  * Use debhelper (>= 11)
+
+ -- Anthony Fok <foka@debian.org>  Thu, 01 Mar 2018 22:43:01 -0700
+
+golang-github-alecthomas-chroma (0.2.1-1) unstable; urgency=medium
+
+  * New upstream version 0.2.1
+  * debian/rules: Install lexers/testdata (new in 0.2.1)
+  * Bump Standards-Versions from 4.1.1 to 4.1.3 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Sat, 03 Feb 2018 22:44:55 -0700
+
+golang-github-alecthomas-chroma (0.2.0-1) unstable; urgency=medium
+
+  * New upstream version 0.2.0
+  * Enable parallel building again, it's not causing the FTBFS on gccgo
+    architectures.
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Mon, 27 Nov 2017 23:05:31 +0100
+
+golang-github-alecthomas-chroma (0.1.1+git20171116.9c81d25-2) unstable; urgency=medium
+
+  * Do not build parallel to try to fix FTBFS on architectures using gccgo.
+    (Closes: #882450)
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Thu, 23 Nov 2017 13:47:54 +0100
+
+golang-github-alecthomas-chroma (0.1.1+git20171116.9c81d25-1) unstable; urgency=medium
+
+  * Initial release (Closes: #879749)
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Tue, 21 Nov 2017 13:33:22 +0100
