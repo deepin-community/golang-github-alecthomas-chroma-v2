@@ -1,0 +1,2 @@
+script-not-executable [usr/share/gocode/src/github.com/alecthomas/chroma/v2/lexers/testdata/*.actual]
+unusual-interpreter * [usr/share/gocode/src/github.com/alecthomas/chroma/v2/lexers/testdata/*.actual]

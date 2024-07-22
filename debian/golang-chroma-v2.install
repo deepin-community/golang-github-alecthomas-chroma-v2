@@ -1,0 +1,3 @@
+#!/usr/bin/dh-exec
+_build/bin/chroma => /usr/bin/chroma-v2
+_build/bin/chromad => /usr/bin/chromad-v2

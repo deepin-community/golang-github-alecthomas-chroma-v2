@@ -1,4 +1,26 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_INSTALL_EXTRA := cmd/chromad/static cmd/chromad/templates lexers/embedded styles
+
+DATE_FMT := %Y-%m-%dT%H:%M:%SZ
+ifdef SOURCE_DATE_EPOCH
+  BUILD_DATE ?= $(shell date -u -d "@$(SOURCE_DATE_EPOCH)" "+$(DATE_FMT)" 2>/dev/null || date -u -r "$(SOURCE_DATE_EPOCH)" "+$(DATE_FMT)" 2>/dev/null || date -u "+$(DATE_FMT)")
+else
+  BUILD_DATE ?= $(shell date -u "+$(DATE_FMT)")
+endif
+
+VERSION := $(shell dpkg-parsechangelog -S version)
+UPSTREAM_VERSION := $(word 1,$(subst -, ,$(VERSION)))
+DEBIAN_REVISION := $(word 2,$(subst -, ,$(VERSION)))
+
+LDFLAGS := -ldflags \
+        '-X "main.version=$(UPSTREAM_VERSION)" \
+         -X "main.commit=$(DEBIAN_REVISION)" \
+         -X "main.date=$(BUILD_DATE)"'
+
 %:
-	dh $@
+	dh $@ --builddirectory=_build --buildsystem=golang
+
+override_dh_auto_build:
+	dh_auto_build -- $(LDFLAGS)
+	pandoc -s -t man debian/chroma-v2.1.md -o debian/chroma-v2.1
